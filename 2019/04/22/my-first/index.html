@@ -240,7 +240,7 @@
             <i class="icon icon-weibo"></i>
           </a>
           <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
+            <i class="icon icon-weixin" onclick="wxShow()"></i>
           </a>
           <a class="qq share-sns" href="javascript:;" data-type="qq">
             <i class="icon icon-qq"></i>
@@ -265,16 +265,62 @@
     </span>
   </div>
 </div>
-
-<div class="page-modal wx-share js-wx-box">
+<span id="url">https://machimic.github.io/2019/04/22/my-first/</span>
+<!--<div class="page-modal wx-share js-wx-box">
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
       <img src="//pan.baidu.com/share/qrcode?url=https://machimic.github.io/2019/04/22/my-first/" alt="微信分享二维码">
     </div>
-</div>
+</div>-->
 
 <div class="mask js-mask"></div>
+<div class="wx-qrcode-wrapper">
+  <!-- 遮罩层 -->
+  <div class="mask"></div>
+  <div class="wx-qrcode page-modal wx-share js-wx-box">
+    <h4>微信分享
+      <!-- 关闭图标 -->
+      <a href="javascript:;" class="icon-close2" onclick="wxHide()">
+        <img src="images/static_img/icon-close2.png" alt>
+      </a>
+    </h4>
+    <!-- 生成的二维码容器 -->
+    <div id="qrcode"></div>
+  </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script>
+var url = null;
+$(function(){
+  $('#url').hide();
+  url = $('#url').text();
+  $('.wx-qrcode-wrapper').hide();
+
+  $("#qrcode").qrcode({
+      text: url, //设置二维码内容
+      render: "table", //设置渲染方式
+      width: 200, //设置宽度,默认生成的二维码大小是 256×256
+      height: 200, //设置高度
+      typeNumber: -1, //计算模式
+      background: "#ffffff", //背景颜色
+      foreground: "#000000" //前景颜色
+    });
+})
+
+  /* 点微信图标，触发二维码弹出层显示 */
+  function wxShow() {
+    $('.wx-qrcode-wrapper').show()
+  }
+
+  /* 关闭二维码弹出层 */
+  function wxHide() {
+    $('.wx-qrcode-wrapper').hide()
+  }
+
+</script>
 
       
       <div class="clearfix"></div>
