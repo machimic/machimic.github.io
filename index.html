@@ -160,27 +160,103 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="draft-my-first" class="article article-type-draft  article-index" itemscope itemprop="blogPost">
+    <article id="pages-Java基础篇（1）" class="article article-type-pages  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/22/my-first/">这是我的第一个文章</a>
+      <a class="article-title" href="/2019/05/16/Java基础篇（1）/">Java基础篇（1）</a>
     </h1>
   
 
         
-        <a href="/2019/04/22/my-first/" class="archive-article-date">
-  	<time datetime="2019-04-21T17:34:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-22</time>
+        <a href="/2019/05/16/Java基础篇（1）/" class="archive-article-date">
+  	<time datetime="2019-05-16T13:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的第一个文章</p>
+        <p><strong>1.谈谈你对Java平台的理解；“Java是解释执行”，这句话对吗？</strong></p>
+<p>1.Java本身是一种面向对象的语言，有最显著的两个方面：<br>1）一次编译，到处运行。<br>2）有自己的回收机制（GC）</p>
+<p>日常接触到JRE,JDK也就是Java环境，包含了很多JVM和Java类库，以及一些模块。而JDK包含了JRE，同时也提供了很多工具，比如编译器等等。Java一次编译，到处运行的前提是JVM，因为Java一共了不同平台的JVM，所以能做到一次编译，到处运行。</p>
+<p>2.Java不是解释执行语言，应该说并不完全是。一个Java程序写出来后，编译器首先会降Java代码转换成（通过Javac）字节码文件，然后JVM内嵌的解释器会将字节码文件转换成计算机看得懂的机器码，让我们的程序跑起来。但是在常见的JVM中，比如说ORACLE JDK提供的JVM，JIT（Just-In-Time）编译器，能够讲热点代码变成机器码，这种属于编译执行，而不是解释执行，也就是说，JIT编译这一段代码直接是转成了机器码，而不是转成.class代码，再让JVM去解析成机器码</p>
+<blockquote>
+<p>JIT(Just-In_Time)知识点<br><a href="https://www.cnblogs.com
+/insistence/p/5901457.html" title="JIT(Just-In_Time)知识点" target="_blank" rel="noopener">https://www.cnblogs.com/insistence/p/5901457.html</a></p>
+</blockquote>
+<p><br></p>
+<p><strong>2.Exception和Error有什么区别；运行时异常和一般异常有什么区别</strong></p>
+<p>Exception和Error都继承了Throwable类</p>
+<p>Exception:Exception分为检查异常和不检查异常。<br>可检查异常要在我们编译写代码的时候显示进行捕获和处理。这在我们写代码的时候编译器会提醒我们。<br>不检查异常则是在我们程序运行的时候会抛出的异常，比如我们常见的ArrayIndexOutOfBoundsException这类异常通常是我们的逻辑出错。</p>
+<p>Error:是指在正常情况下，不太可能出现的错误。比如常见OutOfMemoryError之类的</p>
+<p>NoClassDefFoundError发生在JVM阶段，而ClassNOtFoundException发生在编译阶段</p>
+<blockquote>
+<p>补充解释<br><a href="https://blog.csdn.net/wdw131409/article/details/78316919" title="解释Exception,Error" target="_blank" rel="noopener">https://blog.csdn.net/wdw131409/article/details/78316919</a></p>
+</blockquote>
+<p><br>                         </p>
+<p><strong>3.final,finally,finalize</strong></p>
+<p>这三个玩意压根就没什么联系，之所以会用来做经典的面试题，应该是因为他们长的有点像。<br>final：常用来修饰类，变量，方法；被修饰的类为final的话，将不可以继承，修饰变量的话则该变量不可以被修改，final方法则不可以被覆盖<br>finally：是保证重点代码一定会被执行的一种机制。可以使用finally块，来关闭数据库连接等等。<br>finalize：保证对象在被垃圾收集前完成特定资源的回收。</p>
+<p><br></p>
+<p><strong>4.String,StringBuilder,StringBuffer有什么区别</strong></p>
+<p>String是Immutable（不可变）类，被final声明，所有的属性也是final的。有不可变性类似拼接字符串等一些动作都会产生新的String对象。运行机制是创建 一个字符串的时候首先检查常量池中是否有相同的字符串，有的话则直接返回查到的对象的引用。如果没有则创建新的串，然后返回对象的引用，并将新的对象放入常量池中。而通过new的方式创建String对象是不检查常量池的直接在堆创建一个对象</p>
+<pre><code>String a = &quot;AB&quot;;//会放进常量池
+String b  = new String(&quot;AB&quot;);//放入非常量池
+System.out.println(a == b);//false
+</code></pre><p><strong>String补充：</strong>String str=”str1”与 String str=new String(“str1”)一样吗？</p>
+<p>String str1 = “str1”：<br>1、 在栈中创建str1的引用。<br>2、 去常量池中查看是否有相同Unicode编码的字符串常量。如果有将str1指向该常量，如果没有则创建一个内容为”str1”的字符串常量，将str1的引用指向该常量。<br>3、 如果str1进行了赋值str1= “123”,则栈中的str1的引用指向新的内容为“123”的字符串常量。<br>4、 String str1 = “str1”; String str2 = “str1”;str2的引用指向常量池中已经存在的内容为“str1”的常量，不会重新创建新的常量，str1和str2的引用指向同一个常量。<br>str1 == str2; str1+”a” != str2+”a”</p>
+<p>String str1 = new String(“str1”)：<br>1、 在常量池中创建内容为“str1”的对象，在堆中创建内容为“str1”的对象。<br>2、 String str1 = new String(“str1”); String str2 = new String(“str1”);str2不会指向之前创建的对象，而是重新创建一个对象。</p>
+<pre><code>str1 != str2;
+String str1 = &quot;str1&quot;;
+String str2 = &quot;str1&quot;;
+String str3 = new String(&quot;str1&quot;);
+String str4 = new String(&quot;str1&quot;);
+System.out.println(str1==str2);//true地址一样
+System.out.println(str3==str4);//false,但地址不一样
+System.out.println(str3.equals(str4));//true,值一样
+System.out.println(str2.equals(str3));//true,值一样
+System.out.println((str1+&quot;a&quot;)==(str2+&quot;a&quot;));//false;进行了+连接地址不一样
+System.out.println((str1+&quot;a&quot;).equals((str2+&quot;a&quot;)));//true;进行了+连接值一样
+</code></pre><p><strong>注意：</strong>String提供了inter()方法。调用该方法时，如果常量池中包括了一个等于此String对象的字符串（由equals方法确定），则返回池中的字符串。否则，将此String对象添加到池中，并且返回此池中对象的引用。</p>
+<pre><code>String c = a.iner();
+System.out.println(a == c);//true
+</code></pre><p>StringBuilder：是为了解决String字符串拼接，从而产生很多新对象的问题而产生的一个类。我们可以用append方法，直接拼接字符串。</p>
+<p>StringBuffer：本质是一个线程安全的可修改字符序列，StringBuffer类中方法定义前面都会有synchronize关键字。为此，StringBuffer的性能要远低于StringBuilder。保证了线程安全。同时也会带来了一些开销。除非有线程安全的需要，不然还是推荐使用StringBuilder</p>
+<p>String,StringBuilder,StringBuffer运行效率：</p>
+<pre><code>public static void main(String[] args) {
+     String str = &quot;&quot;;
+     long beginTime = System.currentTimeMillis();
+     for (int i = 0; i &lt; 100000; i++){
+           str = str + i;
+     ｝
+    long endTime = System.currentTimeMillis(); 
+    System.out.println(&quot;执行时间：&quot; + (endTime - beginTime));
+｝    
+</code></pre><p>运行时间：18484</p>
+<pre><code>public static void main(String[] args) {
+     StringBuilder buffer = new StringBuilder(&quot;&quot;);
+     long beginTime = System.currentTimeMillis();
+     for (int i = 0; i &lt; 5000; i++){
+           buffer.append(i);
+     }
+    long endTime = System.currentTimeMillis(); 
+    System.out.println(&quot;执行时间：&quot; + (endTime - beginTime));
+｝
+</code></pre><p>运行时间：9</p>
+<pre><code>public static void main(String[] args) {
+     StringBuffer buffer = new StringBuffer(&quot;&quot;);
+     long beginTime = System.currentTimeMillis();
+     for (int i = 0; i &lt; 5000; i++){
+           buffer.append(i);
+     }
+    long endTime = System.currentTimeMillis(); 
+    System.out.println(&quot;执行时间：&quot; + (endTime - beginTime));
+｝
+</code></pre><p>运行时间：10</p>
+<p>线程安全的效率会慢一些，非线程安全效率会稍微快一下，保证线程安全建议还是用StringBuffer</p>
 
       
 
@@ -189,22 +265,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">这是一个测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/22/my-first/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/05/16/Java基础篇（1）/">展开全文 >></a>
         </p>
       
 
@@ -325,10 +390,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">这是一个测试</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
