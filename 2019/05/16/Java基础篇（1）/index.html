@@ -346,9 +346,9 @@ System.out.println(a == c);//true
   <div class="wx-qrcode page-modal wx-share js-wx-box">
     <h4>微信分享
       <!-- 关闭图标 -->
-      <a href="javascript:;" class="icon-close2" onclick="wxHide()">
-        <img src="images/static_img/icon-close2.png" alt>
-      </a>
+      <!-- <a href="javascript:;" class="icon-close2" onclick="wxHide()">
+        <img src="images/static_img/icon-close2.png" alt="">
+      </a>-->
     </h4>
     <!-- 生成的二维码容器 -->
     <div id="qrcode"></div>
@@ -362,18 +362,33 @@ var url = null;
 $(function(){
   $('#url').hide();
   url = $('#url').text();
+  // url = utf16to8(url);
+  debugger;
   $('.wx-qrcode-wrapper').hide();
 
-  $("#qrcode").qrcode({
-      text: url, //设置二维码内容
-      render: "canvas", //设置渲染方式
-      width: 200, //设置宽度,默认生成的二维码大小是 256×256
-      height: 200, //设置高度
-      typeNumber: -1, //计算模式
-      background: "#ffffff", //背景颜色
-      foreground: "#000000" //前景颜色
-    });
+  $("#qrcode").qrcode(encodeURI(url));
 })
+
+function utf16to8(str) {  
+    var out, i, len, c;  
+    out = "";  
+    len = str.length;  
+    for(i = 0; i < len; i++) {  
+    c = str.charCodeAt(i);  
+    if ((c >= 0x0001) && (c <= 0x007F)) {  
+        out += str.charAt(i);  
+    } else if (c > 0x07FF) {  
+        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
+        out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    } else {  
+        out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    }  
+    }  
+    return out;  
+}  
+
 
   /* 点微信图标，触发二维码弹出层显示 */
   function wxShow() {
@@ -394,20 +409,6 @@ $(function(){
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2019/05/16/这是一个测试/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          这是一个测试
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
