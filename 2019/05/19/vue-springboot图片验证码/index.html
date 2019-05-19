@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://machimic.github.io">
-  <title>Archives | 马驰博客</title>
+  <title>vue,springboot图片验证码 | 马驰博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是我的个人博客">
+  <meta name="description" content="1.springboot首先是springboot添加依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;com.github.axet&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;kaptcha&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;0.0.9&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt">
 <meta name="keywords" content="折腾">
-<meta property="og:type" content="website">
-<meta property="og:title" content="马驰博客">
-<meta property="og:url" content="https://machimic.github.io/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue,springboot图片验证码">
+<meta property="og:url" content="https://machimic.github.io/2019/05/19/vue-springboot图片验证码/index.html">
 <meta property="og:site_name" content="马驰博客">
-<meta property="og:description" content="这是我的个人博客">
+<meta property="og:description" content="1.springboot首先是springboot添加依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;com.github.axet&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;kaptcha&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;0.0.9&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://machimic.github.io/Users/machi/blog/themes/yilia/source/img/1558281388246.jpg">
+<meta property="og:updated_time" content="2019-05-19T16:06:53.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马驰博客">
-<meta name="twitter:description" content="这是我的个人博客">
+<meta name="twitter:title" content="vue,springboot图片验证码">
+<meta name="twitter:description" content="1.springboot首先是springboot添加依赖 12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;com.github.axet&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;kaptcha&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;0.0.9&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt">
+<meta name="twitter:image" content="https://machimic.github.io/Users/machi/blog/themes/yilia/source/img/1558281388246.jpg">
   
     <link rel="alternative" href="/atom.xml" title="马驰博客" type="application/atom+xml">
   
@@ -158,103 +161,231 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="pages-vue-springboot图片验证码" class="article article-type-pages " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      vue,springboot图片验证码
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-pages">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/19/vue-springboot图片验证码/" class="archive-article-date">
+
+        
+        <a href="/2019/05/19/vue-springboot图片验证码/" class="archive-article-date">
   	<time datetime="2019-05-19T15:28:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/19/vue-springboot图片验证码/">vue,springboot图片验证码</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-springboot"><a href="#1-springboot" class="headerlink" title="1.springboot"></a>1.springboot</h5><p>首先是springboot添加依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;com.github.axet&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;kaptcha&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;0.0.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p>新建一个接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 获取验证码</span><br><span class="line">@GetMapping(&quot;/kaptcha&quot;)</span><br><span class="line">public void kaptcha(HttpServletResponse response, 																															HttpServletRequest request, 																																@RequestParam(&quot;secret&quot;) String secret) 																											throws Exception &#123;</span><br><span class="line">  response.setHeader(&quot;Cache-Control&quot;, &quot;no-store, no-cache&quot;);</span><br><span class="line">  response.setContentType(&quot;image/jpeg&quot;);</span><br><span class="line">  // 生成验证码文本</span><br><span class="line">  //        String capText = captchaProducer.createText();</span><br><span class="line">  // 利用生成的字符串构建图片</span><br><span class="line">  BufferedImage bi = captchaProducer.createImage(secret);</span><br><span class="line">  ServletOutputStream out = response.getOutputStream();</span><br><span class="line">  ImageIO.write(bi, &quot;jpg&quot;, out);</span><br><span class="line">  try &#123;</span><br><span class="line">    out.flush();</span><br><span class="line">  &#125; finally &#123;</span><br><span class="line">    out.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不用下载，直接把流推到前台,secret是从vue传来的验证码</p>
+<h5 id="2-vue"><a href="#2-vue" class="headerlink" title="2.vue"></a>2.vue</h5><p>首先写一个img标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"imgsrc"</span> <span class="attr">class</span>=<span class="string">"secrret"</span> @<span class="attr">click</span>=<span class="string">"change_secret"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>定义img的src等一些需要的变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      checkCode: null,</span><br><span class="line">      code: null,</span><br><span class="line">      base_imgsrc: &apos;http://localhost:8080/login/kaptcha?secret=&apos;,</span><br><span class="line">      imgsrc: null,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>获取验证码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">     // 获取验证码</span><br><span class="line">     createCode()&#123;</span><br><span class="line">        //先清空验证码的输入</span><br><span class="line">        let code = &quot;&quot;;</span><br><span class="line">        this.checkCode = &quot;&quot;;</span><br><span class="line">        //验证码的长度  </span><br><span class="line">        var codeLength = 5; </span><br><span class="line">        //随机数 </span><br><span class="line">        var random = new Array(0,1,2,3,4,5,6,7,8,9,&apos;A&apos;,&apos;B&apos;,&apos;C&apos;,&apos;D&apos;,&apos;E&apos;,&apos;F&apos;,&apos;G&apos;,&apos;H&apos;,&apos;I&apos;,&apos;J&apos;,&apos;K&apos;,&apos;L&apos;,&apos;M&apos;,&apos;N&apos;,&apos;O&apos;,&apos;P&apos;,&apos;Q&apos;,&apos;R&apos;,&apos;S&apos;,&apos;T&apos;,&apos;U&apos;,&apos;V&apos;,&apos;W&apos;,&apos;X&apos;,&apos;Y&apos;,&apos;Z&apos;);  </span><br><span class="line">        for(var i = 0; i &lt; codeLength; i++) &#123;</span><br><span class="line">            //取得随机数的索引（0~35）</span><br><span class="line">            var index = Math.floor(Math.random()*36);   </span><br><span class="line">            //根据索引取得随机数加到code上</span><br><span class="line">            code += random[index];   </span><br><span class="line">         m &#125;</span><br><span class="line">         //把code值赋给验证码  </span><br><span class="line">        this.checkCode = code; </span><br><span class="line">      &#125;,</span><br><span class="line">     // 获取验证码的src</span><br><span class="line">    getImgSrc()&#123;</span><br><span class="line">        this.imgsrc = this.base_imgsrc + this.checkCode</span><br><span class="line">    &#125;,</span><br><span class="line">   // 验证码点击事件，每点击一次切换验证码</span><br><span class="line">   change_secret()&#123;</span><br><span class="line">      this.createCode();</span><br><span class="line">      this.imgsrc = &apos;http://localhost:8080/login/kaptcha?secret=&apos; + 			this.checkCode;</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>页面渲染，初始化加载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">created: function () &#123;</span><br><span class="line">   this.createCode();</span><br><span class="line">   this.getImgSrc();</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>这样验证码整套流程就结束了，接下来看看效果</p>
+<p><img src="/Users/machi/blog/themes/yilia/source/img/1558281388246.jpg" alt="1558281388246"></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin" onclick="wxShow()"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+<span id="url">https://machimic.github.io/2019/05/19/vue-springboot图片验证码/</span>
+<!--<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://machimic.github.io/2019/05/19/vue-springboot图片验证码/" alt="微信分享二维码">
+    </div>
+</div>-->
+
+<div class="mask js-mask"></div>
+<div class="wx-qrcode-wrapper">
+  <!-- 遮罩层 -->
+  <div class="mask"></div>
+  <div class="wx-qrcode page-modal wx-share js-wx-box">
+    <h4>微信分享
+      <!-- 关闭图标 -->
+      <!-- <a href="javascript:;" class="icon-close2" onclick="wxHide()">
+        <img src="images/static_img/icon-close2.png" alt="">
+      </a>-->
+    </h4>
+    <!-- 生成的二维码容器 -->
+    <div id="qrcode"></div>
+  </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<script>
+var url = null;
+$(function(){
+  $('#url').hide();
+  url = $('#url').text();
+  // url = utf16to8(url);
+  $('.wx-qrcode-wrapper').hide();
+
+  $("#qrcode").qrcode(encodeURI(url));
+})
+
+function utf16to8(str) {  
+    var out, i, len, c;  
+    out = "";  
+    len = str.length;  
+    for(i = 0; i < len; i++) {  
+    c = str.charCodeAt(i);  
+    if ((c >= 0x0001) && (c <= 0x007F)) {  
+        out += str.charAt(i);  
+    } else if (c > 0x07FF) {  
+        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
+        out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    } else {  
+        out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    }  
+    }  
+    return out;  
+}  
+
+
+  /* 点微信图标，触发二维码弹出层显示 */
+  function wxShow() {
+    $('.wx-qrcode-wrapper').show()
+  }
+
+  /* 关闭二维码弹出层 */
+  function wxHide() {
+    $('.wx-qrcode-wrapper').hide()
+  }
+
+</script>
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-pages">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/17/自定义注解/" class="archive-article-date">
-  	<time datetime="2019-05-17T13:45:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/17/自定义注解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">springboot aop 自定义注解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/17/自定义注解/">springboot aop 自定义注解</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-pages">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/16/Java基础篇（1）/" class="archive-article-date">
-  	<time datetime="2019-05-16T13:20:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/16/Java基础篇（1）/">Java基础篇（1）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -277,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
